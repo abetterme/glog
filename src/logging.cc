@@ -1574,7 +1574,8 @@ void LogMessage::Init(const char* file,
              << setw(6) << data_->usecs_
              << ' '
              << setfill(' ') << setw(5)
-             << static_cast<unsigned int>(GetTID()) << setfill('0')
+             //<< static_cast<unsigned int>(GetTID()) << setfill('0')
+             << "0x" << std::hex << static_cast<unsigned int>(pthread_self()) << setfill('0')
              << ' '
              << data_->basename_ << ':' << data_->line_ << "] ";
   }
